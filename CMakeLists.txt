@@ -6,15 +6,16 @@ set(CMAKE_CXX_COMPILER "/usr/bin/clang++-18")
 set(CMAKE_CXX_STANDARD 17)
 
 
-find_package(SFML COMPONENTS graphics REQUIRED)
+find_package(SFML COMPONENTS graphics REQUIRED)  
 
+set(SRC_FILES 
+    src/main.cpp 
+    src/engine/game.cpp
+    )
+set(HEADER_FILES 
+    include/engine/game.h
+    )
 
-# Подключение заголовков и библиотек LLVM 
-include_directories(${LLVM_INCLUDE_DIRS}) 
-link_directories(${LLVM_LIBRARY_DIRS})    
-add_definitions(${LLVM_DEFINITIONS})      
-
-
-add_executable(testApp src/main.cpp)
+add_executable(testApp ${SRC_FILES} ${HEADER_FILES})
 
 target_link_libraries(testApp sfml-graphics)

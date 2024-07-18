@@ -8,14 +8,19 @@ set(CMAKE_CXX_STANDARD 17)
 
 find_package(SFML COMPONENTS graphics REQUIRED)  
 
-set(SRC_FILES 
+set(SOURCES 
+
     src/main.cpp 
     src/engine/game.cpp
+    src/engine/game.h 
+    src/engine/control/process_events_manager.cpp 
+    src/engine/control/process_events_manager.h 
+    src/engine/control/window_manager.cpp 
+    src/engine/control/window_manager.h
+    
     )
-set(HEADER_FILES 
-    include/engine/game.h
-    )
+    
 
-add_executable(testApp ${SRC_FILES} ${HEADER_FILES})
+add_executable(testApp ${SOURCES})
 
 target_link_libraries(testApp sfml-graphics)

@@ -8,8 +8,8 @@ Game::Game() {
 
 void Game::runMainGameLoop() {
 
-    auto& window = WindowManager::get();
-    ProcessEventsManager eventHandler;
+    auto& window = sheldr::WindowManager::get();
+    sheldr::ProcessEventsManager eventHandler;
 
     sf::CircleShape shape(100.f);
     shape.setFillColor(sf::Color::Green);

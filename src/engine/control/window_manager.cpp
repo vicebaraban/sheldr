@@ -1,39 +1,42 @@
 #include "window_manager.h"
 
 
-WindowManager& WindowManager::get() {
+sheldr::WindowManager& sheldr::WindowManager::get() {
     static WindowManager wm;
     return wm;
 }
 
-WindowManager::WindowManager() {
+sheldr::WindowManager::WindowManager() {
     m_window.create(sf::VideoMode(200, 200), "Test App");
 }
 
-void WindowManager::close() {
+void sheldr::WindowManager::close() {
     m_window.close();
 }
 
-void WindowManager::clear() {
+void sheldr::WindowManager::clear() {
     m_window.clear();
 }
 
-void WindowManager::update() {
+void sheldr::WindowManager::update() {
     m_window.display();
 }
 
-bool WindowManager::isOpen()
-{
+bool sheldr::WindowManager::isOpen() {
     return m_window.isOpen();
 }
 
-sf::RenderWindow& WindowManager::getRaw()
-{
+sf::RenderWindow& sheldr::WindowManager::getRaw() {
     return m_window;
 }
 
-void WindowManager::draw(const sf::Drawable& drawable)
-{
+void sheldr::WindowManager::draw(const sf::Drawable& drawable) {
     m_window.draw(drawable);
+}
+
+void sheldr::WindowManager::drawGroup(sheldr::SpriteGroup& group) {
+        for (sheldr::Sprite &sprite : group.sprites()) {
+        m_window.draw(sprite);
+    }
 }
 

@@ -2,17 +2,20 @@
 #define PROCESS_EVENTS_MANAGER_H_
 
 #include <SFML/Graphics.hpp>
-
 #include "window_manager.h"
 
 
-class ProcessEventsManager {
-public:
-    
-    void handleEvents();
+namespace sheldr {
 
-private:
+    class ProcessEventsManager {
+    public:
+        
+        void handleEvents();
 
-};
+    private:
+
+    };
+
+}
 
 #endif  // PROCESS_EVENTS_MANAGER_H_

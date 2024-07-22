@@ -1,8 +1,8 @@
 #include "process_events_manager.h"
 
 
-void ProcessEventsManager::handleEvents() {
-    auto& window = WindowManager::get().getRaw();
+void sheldr::ProcessEventsManager::handleEvents() {
+    auto& window = sheldr::WindowManager::get().getRaw();
 
     sf::Event event;
     while (window.pollEvent(event)) {

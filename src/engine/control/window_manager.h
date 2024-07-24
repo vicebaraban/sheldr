@@ -23,7 +23,7 @@ namespace sheldr {
 
         void draw(const sf::Drawable&);
 
-        void drawGroup(sheldr::SpriteGroup&);
+        void drawGroup(sheldr::SpriteGroup*);
 
     private:
 

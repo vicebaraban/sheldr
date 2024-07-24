@@ -1,7 +1,6 @@
 #ifndef SPRITE_GROUP_H_
 #define SPRITE_GROUP_H_
 
-#include "sprite.h"
 #include <SFML/Graphics/Sprite.hpp>
 #include <vector>
 #include <SFML/Graphics.hpp>
@@ -17,11 +16,11 @@ namespace sheldr {
         
         std::vector<Sprite> sprites();
 
-        void add(Sprite);
+        void add(const Sprite&);
 
-        void remove(Sprite);
+        void remove(const Sprite&);
 
-        bool has(Sprite);
+        bool has(const Sprite&);
 
         void update();
 
@@ -31,8 +30,8 @@ namespace sheldr {
 
     private:
 
-        std::vector<Sprite> stoarge;
-        
+        std::vector<Sprite> storage;
+
     };
 
 

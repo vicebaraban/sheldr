@@ -34,9 +34,9 @@ void sheldr::WindowManager::draw(const sf::Drawable& drawable) {
     m_window.draw(drawable);
 }
 
-void sheldr::WindowManager::drawGroup(sheldr::SpriteGroup& group) {
-        for (sheldr::Sprite &sprite : group.sprites()) {
-        m_window.draw(sprite);
-    }
-}
+// void sheldr::WindowManager::drawGroup(sheldr::SpriteGroup* group) {
+//         for (sheldr::Sprite sprite : group->sprites()) {
+//         m_window.draw(sprite);
+//     }
+// }
 

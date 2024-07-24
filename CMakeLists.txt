@@ -17,6 +17,10 @@ set(SOURCES
     src/engine/control/process_events_manager.h 
     src/engine/control/window_manager.cpp 
     src/engine/control/window_manager.h
+    src/engine/sprite/sprite.cpp 
+    src/engine/sprite/sprite.h 
+    src/engine/sprite/sprite_group.cpp 
+    src/engine/sprite/sprite_group.h
     
     )
     

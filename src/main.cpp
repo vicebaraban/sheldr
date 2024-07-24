@@ -3,7 +3,7 @@
 
 void initialize() {
 
-    WindowManager::get();
+    sheldr::WindowManager::get();
 
 }
 

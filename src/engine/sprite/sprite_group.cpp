@@ -1,15 +1,30 @@
 #include "sprite_group.h"
 
 
-bool sheldr::SpriteGroup::has(sheldr::Sprite sprite) {
-    auto it = std::find(stoarge.begin(), stoarge.end(), sprite);
-    if (it != stoarge.end()) {
-        return true;
-    }
-    return false;
+bool sheldr::SpriteGroup::has(const sheldr::Sprite& sprite) {
+    auto it = std::find(storage.begin(), storage.end(), sprite);
+    return it != storage.end();
 }
 
 
-void sheldr::SpriteGroup::add(sheldr::Sprite sprite) {
+void sheldr::SpriteGroup::add(const sheldr::Sprite& sprite) {
+    if (!has(sprite)) {
+        // sprite.add(this);
+        storage.push_back(sprite);
+    }
+}
 
+void sheldr::SpriteGroup::remove(const sheldr::Sprite& sprite) {
+    auto it = std::find(storage.begin(), storage.end(), sprite);
+    storage.erase(it);
+}
+
+void sheldr::SpriteGroup::empty() {
+    storage.clear();
+}
+
+void sheldr::SpriteGroup::update() {
+    for (Sprite& sprite : storage) {
+        sprite.update();
+    }
 }

@@ -1,6 +1,4 @@
 #include "game.h"
-#include "sprite/sprite.h"
-#include <SFML/Graphics/Texture.hpp>
 
 
 Game::Game() {

@@ -5,14 +5,20 @@
 #include <vector>
 #include <SFML/Graphics.hpp>
 #include <SFML/Graphics/Texture.hpp>
-#include "sprite.h"
 
 
 namespace sheldr {
 
+    class Sprite;
+
     class SpriteGroup {
 
     public:
+
+        SpriteGroup() {
+            id = next_id;
+            next_id++;
+        }
         
         std::vector<Sprite> sprites();
 
@@ -28,7 +34,14 @@ namespace sheldr {
 
         void empty();
 
+        bool operator==(const SpriteGroup& other) const;
+        bool operator!=(const SpriteGroup& other) const;
+
     private:
+
+        static int next_id;
+
+        int id;
 
         std::vector<Sprite> storage;
 
@@ -36,5 +49,7 @@ namespace sheldr {
 
 
 }
+
+#include "sprite.h"
 
 #endif  // SPRITE_GROUP_H_

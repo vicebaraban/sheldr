@@ -19,11 +19,11 @@ namespace sheldr {
             next_id++;
         }
 
-        // std::vector<SpriteGroup> groups();
+        std::vector<SpriteGroup> groups();
 
-        // void add(SpriteGroup);
+        const void add(const SpriteGroup) const;
 
-        // void remove(SpriteGroup*);
+        const void remove(const SpriteGroup&) const;
 
         bool operator==(const Sprite& other) const;
         bool operator!=(const Sprite& other) const;
@@ -41,10 +41,12 @@ namespace sheldr {
 
         int id;
 
-        // std::vector<SpriteGroup> included;
+        mutable std::vector<SpriteGroup> included;
 
     };
 
 }
+
+#include "sprite_group.h"
 
 #endif  // SPRITE_H_

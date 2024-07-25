@@ -4,6 +4,7 @@
 #include <SFML/Graphics.hpp>
 #include "control/process_events_manager.h"
 #include "control/window_manager.h"
+#include "control/texture_manager.h"
 #include "sprite/sprite.h"
 #include "sprite/sprite_group.h"
 

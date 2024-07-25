@@ -14,7 +14,7 @@ namespace sheldr {
 
     public:
 
-        Sprite(const sf::Texture &texture): sf::Sprite(texture) {
+        Sprite(const sf::Texture* texture): sf::Sprite(*texture) {
             id = next_id;
             next_id++;
         }

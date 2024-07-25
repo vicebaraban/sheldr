@@ -11,12 +11,17 @@ find_package(SFML COMPONENTS graphics REQUIRED)
 set(SOURCES 
 
     src/main.cpp 
+
     src/engine/game.cpp
     src/engine/game.h 
+
     src/engine/control/process_events_manager.cpp 
     src/engine/control/process_events_manager.h 
     src/engine/control/window_manager.cpp 
     src/engine/control/window_manager.h
+    src/engine/control/texture_manager.cpp 
+    src/engine/control/texture_manager.h 
+
     src/engine/sprite/sprite.cpp 
     src/engine/sprite/sprite.h 
     src/engine/sprite/sprite_group.cpp 

@@ -10,16 +10,17 @@ void Game::runMainGameLoop() {
 
     auto& window = sheldr::WindowManager::get();
     sheldr::ProcessEventsManager eventHandler;
-    sf::Texture texture;
-    texture.loadFromFile("assets/square.png");
-    sheldr::Sprite figure(texture);
+
+    sheldr::TextureManager::loadTexture("test_texture", "assets/square.png");
+
+    sheldr::Sprite test_sprite(sheldr::TextureManager::getTexture("test_texture"));
 
     while (window.isOpen()) {
 
         eventHandler.handleEvents();
 
         window.clear();
-        window.draw(figure);
+        window.draw(test_sprite);
         window.update();
     }
 }

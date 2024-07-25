@@ -23,6 +23,8 @@ set(SOURCES
     src/engine/sprite/sprite_group.h
     
     )
+
+file(COPY assets DESTINATION ${CMAKE_BINARY_DIR})
     
 
 add_executable(testApp ${SOURCES})

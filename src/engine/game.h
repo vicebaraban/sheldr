@@ -7,6 +7,7 @@
 #include "control/texture_manager.h"
 #include "sprite/sprite.h"
 #include "sprite/sprite_group.h"
+#include "../game/creature.h"
 
 
 class Game {

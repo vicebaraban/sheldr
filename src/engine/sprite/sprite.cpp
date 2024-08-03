@@ -31,3 +31,10 @@ bool sheldr::Sprite::operator!=(const Sprite& other) const {
 void sheldr::Sprite::update() {
     
 }
+
+void sheldr::Sprite::kill() {
+    for (int i = 0; i < included.size(); i++) {
+        included[i].remove(*this);
+    }
+    delete this;
+}

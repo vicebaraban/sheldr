@@ -44,16 +44,40 @@ void Creature::update() {
 }
 
 void Creature::inputScan() {
+    bool w_is_pressed = false;
+    bool a_is_pressed = false;
+    bool s_is_pressed = false;
+    bool d_is_pressed = false;
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)){
-        this->setDirectionY(-1);
+        w_is_pressed = true;
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
-        this->setDirectionX(-1);
+        a_is_pressed = true;
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
-        this->setDirectionY(1);
+        s_is_pressed = true;
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
+        d_is_pressed = true;
+    }
+
+    if (w_is_pressed == s_is_pressed) {
+        this->setDirectionY(0);
+    }
+    else if (w_is_pressed && !s_is_pressed) {
+        this->setDirectionY(-1);
+    }
+    else {
+        this->setDirectionY(1);
+    }
+
+    if (a_is_pressed == d_is_pressed) {
+        this->setDirectionX(0);
+    }
+    else if (a_is_pressed && !d_is_pressed) {
+        this->setDirectionX(-1);
+    }
+    else {
         this->setDirectionX(1);
     }
 }

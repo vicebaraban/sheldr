@@ -17,6 +17,8 @@ namespace sheldr {
         
         void update();
 
+        void setFramerateLimit(unsigned int);
+
         bool isOpen();
 
         sf::RenderWindow& getRaw();

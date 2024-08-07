@@ -8,6 +8,7 @@
 #include "sprite/sprite.h"
 #include "sprite/sprite_group.h"
 #include "../game/creature.h"
+#include "utils/simple_utils.h"
 
 
 class Game {

@@ -17,7 +17,7 @@ namespace sheldr {
 
         static sf::Vector2f mousePosition();
         
-        static std::string handleEvents();
+        static std::vector<std::string> handleEvents();
 
     };
 

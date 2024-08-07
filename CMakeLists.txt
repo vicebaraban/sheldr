@@ -27,10 +27,13 @@ set(SOURCES
     src/engine/sprite/sprite.cpp 
     src/engine/sprite/sprite.h 
     src/engine/sprite/sprite_group.cpp 
-    src/engine/sprite/sprite_group.h
+    src/engine/sprite/sprite_group.h 
+
+    src/engine/utils/simple_utils.cpp 
+    src/engine/utils/simple_utils.h 
     
     src/game/creature.cpp 
-    src/game/creature.h
+    src/game/creature.h 
     )
 
 file(COPY assets DESTINATION ${CMAKE_BINARY_DIR})

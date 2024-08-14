@@ -1,0 +1,71 @@
+#include "player.h"
+#include "bullet.h"
+#include <SFML/System/Vector2.hpp>
+#include <SFML/Window/Cursor.hpp>
+#include <SFML/Window/Keyboard.hpp>
+#include <iostream>
+
+
+void Player::update() {
+    inputScan();
+    updateTargetDirection();
+    move(sf::Vector2f(dx * speed_x, dy * speed_y));
+    // std::cout << dx * speedX << " " << dy * speedY << "\n";
+}
+
+void Player::inputScan() {
+    bool w_is_pressed = false;
+    bool a_is_pressed = false;
+    bool s_is_pressed = false;
+    bool d_is_pressed = false;
+
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)){
+        w_is_pressed = true;
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
+        a_is_pressed = true;
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
+        s_is_pressed = true;
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
+        d_is_pressed = true;
+    }
+
+    if (w_is_pressed == s_is_pressed) {
+        dy = 0.f;
+    }
+    else if (w_is_pressed && !s_is_pressed) {
+        dy = -1.f;
+    }
+    else {
+        dy = 1.f;
+    }
+
+    if (a_is_pressed == d_is_pressed) {
+        dx = 0.f;
+    }
+    else if (a_is_pressed && !d_is_pressed) {
+        dx = -1.f;
+    }
+    else {
+        dx = 1.f;
+    }
+    if (dx != 0.f && dy != 0.f) {
+        dx = 1 / sqrt(2) * dx;
+        dy = 1 / sqrt(2) * dy;
+    }
+}
+
+void Player::updateTargetDirection() {
+    target_direction = calculateDirection(position,
+     sheldr::ProcessEventsManager::mousePosition());
+}
+
+// void Player::shoot() {
+//     Bullet(position, target_direction);
+// }
+
+sf::Vector2f Player::getTargetDirection() {
+    return target_direction;
+}

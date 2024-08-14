@@ -13,19 +13,21 @@
 class Creature {
 public:
 
-    Creature(sf::Vector2f pos) {
-        position = pos;
+    Creature() {
+        position = sf::Vector2f(0.f, 0.f);
         dx = 0;
         dy = 0;
-        speedX = 0.2;
-        speedY = 0.2;
+        speed_x = 2;
+        speed_y = 2;
     }
 
-    sheldr::Sprite getSprite();
+    sheldr::Sprite &getSprite();
 
     void setSpriteTexture(sf::Texture*);
 
     sf::Vector2f getPosition();
+
+    void setPosition(sf::Vector2f);
 
     void move(sf::Vector2f);
     void moveX(float);
@@ -37,19 +39,17 @@ public:
     void update();
 
 
-private:
+protected:
 
     sf::Vector2f position;
-    int dx;
-    int dy;
-    float speedX;
-    float speedY;
+    float dx;
+    float dy;
+    float speed_x;
+    float speed_y;
 
 
     std::vector<sheldr::SpriteGroup> associated_sprite_groups;
     sheldr::Sprite sprite;
-
-    void inputScan();
     
 };
 

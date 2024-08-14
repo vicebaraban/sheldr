@@ -14,6 +14,8 @@ set(SOURCES
 
     src/engine/game.cpp
     src/engine/game.h 
+    src/engine/values.cpp 
+    src/engine/values.h 
 
     src/engine/control/process_events_manager.cpp 
     src/engine/control/process_events_manager.h 
@@ -31,9 +33,20 @@ set(SOURCES
 
     src/engine/utils/simple_utils.cpp 
     src/engine/utils/simple_utils.h 
+    src/engine/utils/load.cpp 
+    src/engine/utils/load.h 
+    src/engine/utils/core_statistics_hub.cpp 
+    src/engine/utils/core_statistics_hub.h 
+    src/engine/utils/math_utils.cpp 
+    src/engine/utils/math_utils.h 
+    
     
     src/game/creature.cpp 
     src/game/creature.h 
+    src/game/player.cpp 
+    src/game/player.h 
+    src/game/bullet.cpp 
+    src/game/bullet.h 
     )
 
 file(COPY assets DESTINATION ${CMAKE_BINARY_DIR})

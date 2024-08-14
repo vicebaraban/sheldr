@@ -19,6 +19,8 @@ namespace sheldr {
 
         void setFramerateLimit(unsigned int);
 
+        void setVerticalSyncEnabled(bool);
+
         bool isOpen();
 
         sf::RenderWindow& getRaw();

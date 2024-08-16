@@ -2,88 +2,106 @@
 #include "control/texture_manager.h"
 #include "control/window_manager.h"
 #include "utils/core_statistics_hub.h"
+#include "utils/load.h"
 #include "utils/simple_utils.h"
+#include "values.h"
 #include <SFML/Graphics/Font.hpp>
 #include <SFML/Graphics/Text.hpp>
 #include <SFML/System/Time.hpp>
 #include <SFML/System/Vector2.hpp>
 #include <SFML/Window/Keyboard.hpp>
+#include <SFML/Window/Window.hpp>
 #include <iostream>
+#include <memory>
 #include <string>
 #include <vector>
 
 
-Game::Game() {}
+Game::Game() {
+    this->initWindow();
+    this->initAssets();
+    this->initVariables();
+    this->initStateData();
+    this->initStates();
+}
 
+void Game::initWindow() {
+    sheldr::WindowManager::get();
+}
 
-void Game::runMainGameLoop() {
-    
-    sf::Clock clock;
-
-    auto& window = sheldr::WindowManager::get();
-    // window.setFramerateLimit(30);
-
-    utils::StatisticsHub statistics_text;
-    // window.setVerticalSyncEnabled(true);
-
+void Game::initAssets() {
     loadImages();
-    player.setPosition(sf::Vector2f(30.f, 30.f));
-    player.setSpriteTexture(sheldr::TextureManager::getTexture("test_texture"));
+}
 
-    sf::Time time_per_frame = sf::seconds(1.f / 30.f);
-    // sf::Time current_time = sf::seconds(0.f);
+void Game::initVariables() {
+    this->fps = 30;
+    this->time_per_frame = sf::seconds(1.f / this->fps);
+}
+
+void Game::initStateData() {
+    this->state_data.states = &this->states;
+}
+
+void Game::initStates() {
+	this->states.push(new PlayingState(&this->state_data));
+}
+
+void Game::run() {
+    
+    auto &window = sheldr::WindowManager::get();
 
     while (window.isOpen()) {
         
-        sf::Time current_time = clock.restart();
-        std::vector<std::string> input_buttons;
-        while (current_time < time_per_frame) {
+        updateSystem();
+        sheldr::ProcessEventsManager::handleEvents();
+        updateState();
+        renderWindow();
 
-            sf::Time dt = clock.restart();
-            current_time += dt;
-
-
-        }
-        statistics_text.update(current_time);
-
-        input_buttons = sheldr::ProcessEventsManager::handleEvents();
-
-        processEvents(input_buttons);
-
-
-        // sheldr::ProcessEventsManager::handleEvents();
-
-        player.update();
-
-        for (Bullet b : bullet_container) {
-            b.update();
-        }
-
-        window.clear();
-        window.draw(player.getSprite());
-        std::cout << bullet_container.size() << "\n";
-        for (Bullet b : bullet_container) {
-            window.draw(b.getSprite());
-            // std::cout << b.getPosition().x << "\n";
-        }
-        window.draw(statistics_text.getInfoText());
-        window.update();
     }
 }
 
 
-void Game::processEvents(std::vector<std::string> input_buttons) {
 
-    for (int i = 0; i < input_buttons.size(); i++) {
-        // std::cout << input_buttons[i] << "\n";
-        if (input_buttons[i] == "+space") {
-            // std::cout << "1\n";
-            bullet_container.push_back(Bullet());
-            bullet_container[-1].setPosition(player.getPosition());
-            bullet_container[-1].setSpriteTexture(sheldr::TextureManager::getTexture("bullet")); 
-            bullet_container[-1].setDirection(player.getTargetDirection());      
+void Game::updateSystem() {
+    sf::Time delta;
+    this->dt = this->clock.restart();
+    while (this->dt < this->time_per_frame) {
+
+            delta = this->clock.restart();
+            this->dt += delta;
+
         }
-    }
+    
+    this->statistics_text.update(this->dt);
+}
 
+void Game::renderWindow() {
+    auto &window = sheldr::WindowManager::get();
+    
+    window.clear();
+
+    if (!this->states.empty()) {
+		this->states.top()->render();
+    }
+    
+    renderSystemInfo();
+	window.display();
+}
+
+void Game::renderSystemInfo() {
+    auto &window = sheldr::WindowManager::get();
+    window.draw(statistics_text.getInfoText());
+}
+
+void Game::updateState() {
+	if (!this->states.empty()) {
+        this->states.top()->update(this->dt.asSeconds());
+
+        // if (this->states.top()->getQuit()) {
+        //     this->states.top()->endState();
+        //     delete this->states.top();
+        //     this->states.pop();
+        // }
+	}
 
 }

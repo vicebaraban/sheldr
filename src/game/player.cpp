@@ -6,10 +6,20 @@
 #include <iostream>
 
 
+Player::Player(): Creature() {
+    initVariables();
+}
+
+
+void Player::initVariables() {
+    this->speed_x = 30.f * (1.f / FPS);
+    this->speed_y = 30.f * (1.f / FPS);
+}
+
 void Player::update() {
     inputScan();
     updateTargetDirection();
-    move(sf::Vector2f(dx * speed_x, dy * speed_y));
+    move(sf::Vector2f(this->dx * this->speed_x, this->dy * this->speed_y));
     // std::cout << dx * speedX << " " << dy * speedY << "\n";
 }
 
@@ -33,32 +43,32 @@ void Player::inputScan() {
     }
 
     if (w_is_pressed == s_is_pressed) {
-        dy = 0.f;
+        this->dy = 0.f;
     }
     else if (w_is_pressed && !s_is_pressed) {
-        dy = -1.f;
+        this->dy = -1.f;
     }
     else {
-        dy = 1.f;
+        this->dy = 1.f;
     }
 
     if (a_is_pressed == d_is_pressed) {
-        dx = 0.f;
+        this->dx = 0.f;
     }
     else if (a_is_pressed && !d_is_pressed) {
-        dx = -1.f;
+        this->dx = -1.f;
     }
     else {
-        dx = 1.f;
+        this->dx = 1.f;
     }
-    if (dx != 0.f && dy != 0.f) {
-        dx = 1 / sqrt(2) * dx;
-        dy = 1 / sqrt(2) * dy;
+    if (this->dx != 0.f && this->dy != 0.f) {
+        this->dx = 1 / sqrt(2) * this->dx;
+        this->dy = 1 / sqrt(2) * this->dy;
     }
 }
 
 void Player::updateTargetDirection() {
-    target_direction = calculateDirection(position,
+    this->target_direction = calculateDirection(this->position,
      sheldr::ProcessEventsManager::mousePosition());
 }
 
@@ -67,5 +77,5 @@ void Player::updateTargetDirection() {
 // }
 
 sf::Vector2f Player::getTargetDirection() {
-    return target_direction;
+    return this->target_direction;
 }

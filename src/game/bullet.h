@@ -16,16 +16,14 @@
 class Bullet: public Creature {
 public:
 
-    Bullet(): Creature() {
-        speed_x = 100.f * (1.f / FPS);
-        speed_y = 100.f * (1.f / FPS);
-        dx = 0.f;
-        dy = 0.f;
-    }
+    Bullet();
 
     void update();
 
     void setDirection(sf::Vector2f);
+
+private:
+    void initVariables();
     
 };
 

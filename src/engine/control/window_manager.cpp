@@ -31,7 +31,7 @@ void sheldr::WindowManager::clear() {
     m_window.clear();
 }
 
-void sheldr::WindowManager::update() {
+void sheldr::WindowManager::display() {
     m_window.display();
 }
 

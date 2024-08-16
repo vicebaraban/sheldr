@@ -1,7 +1,12 @@
 #ifndef GAME_H_
 #define GAME_H_
 
+
 #include <SFML/Graphics.hpp>
+#include <SFML/System/Clock.hpp>
+#include <SFML/System/Time.hpp>
+#include <SFML/Window/Window.hpp>
+#include <stack>
 #include <vector>
 #include "control/process_events_manager.h"
 #include "control/window_manager.h"
@@ -13,14 +18,17 @@
 #include "utils/load.h"
 #include "utils/core_statistics_hub.h"
 #include "../game/player.h"
+#include "control/state_manager.h"
+#include "../game/states/playing_state.h"
 
 
 class Game {
+
 public:
 
     Game();
     
-    void runMainGameLoop();
+    void run();
 
     // Camera& getCamera();
 
@@ -32,11 +40,33 @@ public:
 
 private:
 
-    void processEvents(std::vector<std::string>);
+    std::stack<State *> states;
 
-    Player player;
+    StateData state_data;
+    
+    // Initialization
+    void initWindow();
+    void initAssets();
+    void initVariables();
+    void initStates();
+    void initStateData();
 
-    std::vector<Bullet> bullet_container;
+
+    void updateSystem();
+    void updateState();
+
+    void renderWindow();
+
+    void renderSystemInfo();
+
+
+    utils::StatisticsHub statistics_text;
+
+    unsigned int fps;
+
+    sf::Clock clock;
+    sf::Time dt;
+    sf::Time time_per_frame;
 
 };
 

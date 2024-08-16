@@ -1,18 +1,11 @@
 #include "engine/game.h"
 
 
-void initialize() {
-
-    sheldr::WindowManager::get();
-
-}
-
 int main() {
     try {
 
-        initialize();
         Game app;
-        app.runMainGameLoop();
+        app.run();
         return EXIT_SUCCESS;
 
     }

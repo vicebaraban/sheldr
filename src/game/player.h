@@ -20,11 +20,7 @@
 class Player: public Creature {
 public:
 
-    Player(): Creature() {
-
-        speed_x = 30.f * (1.f / FPS);
-        speed_y = 30.f * (1.f / FPS);
-    }
+    Player();
 
     void update();
 
@@ -38,6 +34,8 @@ private:
     sf::Vector2f target_direction;
 
     void updateTargetDirection();
+
+    void initVariables();
 
     // void shoot();
     

@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.20)
 project(sheldr)
 
-set(CMAKE_CXX_COMPILER "/usr/bin/clang++-18")
+# set(CMAKE_CXX_COMPILER "/usr/bin/clang++-18")
 
 set(CMAKE_CXX_STANDARD 17)
 
@@ -25,6 +25,8 @@ set(SOURCES
     src/engine/control/texture_manager.h 
     src/engine/control/audio_manager.cpp 
     src/engine/control/audio_manager.h
+    src/engine/control/state_manager.cpp 
+    src/engine/control/state_manager.h 
 
     src/engine/sprite/sprite.cpp 
     src/engine/sprite/sprite.h 
@@ -47,6 +49,9 @@ set(SOURCES
     src/game/player.h 
     src/game/bullet.cpp 
     src/game/bullet.h 
+
+    src/game/states/playing_state.cpp 
+    src/game/states/playing_state.h 
     )
 
 file(COPY assets DESTINATION ${CMAKE_BINARY_DIR})

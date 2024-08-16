@@ -15,7 +15,7 @@ namespace sheldr {
 
         void clear();
         
-        void update();
+        void display();
 
         void setFramerateLimit(unsigned int);
 

@@ -13,13 +13,7 @@
 class Creature {
 public:
 
-    Creature() {
-        position = sf::Vector2f(0.f, 0.f);
-        dx = 0;
-        dy = 0;
-        speed_x = 2;
-        speed_y = 2;
-    }
+    Creature();
 
     sheldr::Sprite &getSprite();
 
@@ -33,8 +27,8 @@ public:
     void moveX(float);
     void moveY(float);
 
-    void setDirectionX(int);
-    void setDirectionY(int);
+    void setDirectionX(float);
+    void setDirectionY(float);
 
     void update();
 
@@ -50,6 +44,10 @@ protected:
 
     std::vector<sheldr::SpriteGroup> associated_sprite_groups;
     sheldr::Sprite sprite;
+
+private:
+
+    void initVariables();
     
 };
 

@@ -3,6 +3,8 @@
 
 #include "../../engine/control/state_manager.h"
 #include "../player.h"
+#include "../creature.h"
+#include "../building.h"
 #include <SFML/Graphics/Texture.hpp>
 #include "../../engine/control/texture_manager.h"
 
@@ -22,10 +24,19 @@ public:
 private:
 
 	Player *player;
+	Building *house;
 	std::vector<Bullet *> bullet_container;
+
+	sf::Clock *shoot_timer;
+	sf::Time shoot_cooldown;
+	sf::Time shoot_cooldown_dt;
+
+	bool flag;
 
 
 	void initPlayer();
+
+	void initHouse();
 
 };
 

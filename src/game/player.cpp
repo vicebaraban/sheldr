@@ -7,19 +7,30 @@
 
 
 Player::Player(): Creature() {
-    initVariables();
+    this->initVariables();
+    this->initCollider();
 }
 
+RectangleCollider &Player::getCollider() {
+    return *this->collider;
+}
 
 void Player::initVariables() {
     this->speed_x = 30.f * (1.f / FPS);
     this->speed_y = 30.f * (1.f / FPS);
+    this->size = sf::Vector2f(64.f, 32.f);
+}
+
+void Player::initCollider() {
+    this->collider = new RectangleCollider();
+    this->collider->settings(this->position, this->size);
 }
 
 void Player::update() {
-    inputScan();
-    updateTargetDirection();
-    move(sf::Vector2f(this->dx * this->speed_x, this->dy * this->speed_y));
+    this->inputScan();
+    this->updateTargetDirection();
+    this->move(sf::Vector2f(this->dx * this->speed_x, this->dy * this->speed_y));
+    this->collider->update(this->position);
     // std::cout << dx * speedX << " " << dy * speedY << "\n";
 }
 

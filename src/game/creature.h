@@ -8,9 +8,12 @@
 #include <vector>
 #include "../engine/sprite/sprite_group.h"
 #include "../engine/sprite/sprite.h"
+#include "collider.h"
+#include "rectangle_collider.h"
 
 
 class Creature {
+
 public:
 
     Creature();
@@ -21,9 +24,16 @@ public:
 
     sf::Vector2f getPosition();
 
+    void setSpriteScale(sf::Vector2f);
+
     void setPosition(sf::Vector2f);
 
+    void setSpeedX(float);
+
+    void setSpeedY(float);
+
     void move(sf::Vector2f);
+    void move();
     void moveX(float);
     void moveY(float);
 
@@ -36,6 +46,7 @@ public:
 protected:
 
     sf::Vector2f position;
+    Collider *collider;
     float dx;
     float dy;
     float speed_x;

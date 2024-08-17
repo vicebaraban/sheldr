@@ -26,16 +26,25 @@ public:
 
     sf::Vector2f getTargetDirection();
 
+    RectangleCollider &getCollider();
+
+
     void inputScan();
 
 
 private:
 
+    sf::Vector2f size;
+
     sf::Vector2f target_direction;
+
+    RectangleCollider *collider;
 
     void updateTargetDirection();
 
     void initVariables();
+
+    void initCollider();
 
     // void shoot();
     

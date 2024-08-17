@@ -1,5 +1,5 @@
-#ifndef BULLET_H_
-#define BULLET_H_
+#ifndef BUILDING_H_
+#define BUILDING_H_
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Graphics/Texture.hpp>
@@ -10,24 +10,23 @@
 #include "../engine/sprite/sprite.h"
 #include "creature.h"
 #include "../engine/values.h"
+#include "rectangle_collider.h"
 
 
 
-class Bullet: public Creature {
+class Building: public Creature {
 public:
 
-    Bullet();
+    Building();
 
     void update();
-
-    void setDirection(sf::Vector2f);
 
     RectangleCollider &getCollider();
 
 private:
 
     sf::Vector2f size;
-
+    
     void initVariables();
     void initCollider();
 
@@ -36,4 +35,4 @@ private:
 };
 
 
-#endif  // BULLET_H_
+#endif  // BUILDING_H_

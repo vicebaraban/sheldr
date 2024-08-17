@@ -3,6 +3,11 @@
 
 
 Creature::Creature() {
+    this->initVariables();
+}
+
+
+void Creature::initVariables() {
     this->position = sf::Vector2f(0.f, 0.f);
     this->dx = 0;
     this->dy = 0;
@@ -42,6 +47,10 @@ void Creature::move(sf::Vector2f delta) {
     this->sprite.setPosition(this->position);
 }
 
+void Creature::move() {
+    this->sprite.setPosition(this->position);
+}
+
 void Creature::setDirectionX(float x) {
     this->dx = x;
 }
@@ -50,4 +59,18 @@ void Creature::setDirectionY(float y) {
     this->dy = y;
 }
 
-void Creature::update() {}
+void Creature::update() {
+    this->sprite.setPosition(this->position);
+}
+
+void Creature::setSpriteScale(sf::Vector2f scale) {
+    this->sprite.setScale(scale);
+}
+
+void Creature::setSpeedX(float v) {
+    this->speed_x = v;
+}
+
+void Creature::setSpeedY(float v) {
+    this->speed_y = v;
+}

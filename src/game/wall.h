@@ -1,5 +1,5 @@
-#ifndef BULLET_H_
-#define BULLET_H_
+#ifndef WALL_H_
+#define WALL_H_
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Graphics/Texture.hpp>
@@ -13,27 +13,19 @@
 
 
 
-class Bullet: public Creature {
+class Wall: public Creature {
 public:
 
-    Bullet();
+    Wall();
 
     void update();
 
     void setDirection(sf::Vector2f);
 
-    RectangleCollider &getCollider();
-
 private:
-
-    sf::Vector2f size;
-
     void initVariables();
-    void initCollider();
-
-    RectangleCollider *collider;
     
 };
 
 
-#endif  // BULLET_H_
+#endif  // WALL_H_

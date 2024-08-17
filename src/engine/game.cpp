@@ -15,6 +15,7 @@
 #include <memory>
 #include <string>
 #include <vector>
+#include "utils/math_utils.h"
 
 
 Game::Game() {
@@ -50,6 +51,18 @@ void Game::run() {
     
     auto &window = sheldr::WindowManager::get();
 
+    // sf::Vector2f t = sf::Vector2f(2, 4);
+    // sf::Vector2f e = sf::Vector2f(1, 2);
+    // sf::Vector2f a = t + e;
+    // std::cout << a.x << " " << a.y << "\n";
+
+    // bool t = rectInRect(
+    //     1, 1, 2, 2, -80, 3, 4, 4
+    // );
+    // if (t) {
+    //     std::cout << "collide\n";
+    // }
+
     while (window.isOpen()) {
         
         updateSystem();
@@ -77,7 +90,7 @@ void Game::updateSystem() {
 
 void Game::renderWindow() {
     auto &window = sheldr::WindowManager::get();
-    
+
     window.clear();
 
     if (!this->states.empty()) {
@@ -94,6 +107,7 @@ void Game::renderSystemInfo() {
 }
 
 void Game::updateState() {
+    
 	if (!this->states.empty()) {
         this->states.top()->update(this->dt.asSeconds());
 

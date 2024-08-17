@@ -49,6 +49,16 @@ set(SOURCES
     src/game/player.h 
     src/game/bullet.cpp 
     src/game/bullet.h 
+    src/game/wall.cpp 
+    src/game/wall.h 
+    src/game/building.cpp 
+    src/game/building.h 
+    src/game/collider.cpp 
+    src/game/collider.h 
+    src/game/rectangle_collider.cpp 
+    src/game/rectangle_collider.h 
+    src/game/circle_collider.cpp 
+    src/game/circle_collider.h 
 
     src/game/states/playing_state.cpp 
     src/game/states/playing_state.h 

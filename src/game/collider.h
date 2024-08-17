@@ -5,28 +5,31 @@
 #include <SFML/Graphics.hpp>
 
 
+class RectangleCollider;
+
+
 class Collider {
 public:
 
     Collider();
 
     void setCenterPosition(sf::Vector2f);
+    sf::Vector2f getCenterPosition();
+
+    bool isCollide(Collider &);
+    bool isCollide(RectangleCollider &);
 
 protected:
 
-    sf::Vector2f center;
+    sf::Vector2f center_point;
 
 private:
     
 
 };
 
-class RectangleCollider: Collider {
-public:
 
-    RectangleCollider();
-
-};
+#include "rectangle_collider.h"
 
 
 #endif  // COLLIDER_H_

@@ -1,9 +1,4 @@
 #include "process_events_manager.h"
-#include <SFML/System/Vector2.hpp>
-#include <SFML/Window/Event.hpp>
-#include <SFML/Window/Keyboard.hpp>
-#include <iostream>
-#include <string>
 
 
 std::vector<std::string> sheldr::ProcessEventsManager::handleEvents() {

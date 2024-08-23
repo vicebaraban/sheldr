@@ -9,7 +9,6 @@
 #include "../engine/sprite/sprite_group.h"
 #include "../engine/sprite/sprite.h"
 #include "creature.h"
-#include "../engine/values.h"
 
 
 

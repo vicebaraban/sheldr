@@ -1,8 +1,4 @@
 #include "core_statistics_hub.h"
-#include <SFML/Graphics/Text.hpp>
-#include <SFML/System/Vector2.hpp>
-#include <iostream>
-#include <string>
 
 
 namespace utils {

@@ -1,6 +1,4 @@
 #include "window_manager.h"
-#include <SFML/Window/VideoMode.hpp>
-#include <SFML/Window/WindowStyle.hpp>
 
 
 sheldr::WindowManager& sheldr::WindowManager::get() {

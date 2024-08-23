@@ -4,7 +4,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "collider.h"
-#include "../engine/utils/math_utils.h"
+#include "../utils/math_utils.h"
 
 
 class RectangleCollider: Collider {

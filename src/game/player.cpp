@@ -1,9 +1,4 @@
 #include "player.h"
-#include "bullet.h"
-#include <SFML/System/Vector2.hpp>
-#include <SFML/Window/Cursor.hpp>
-#include <SFML/Window/Keyboard.hpp>
-#include <iostream>
 
 
 Player::Player(): Creature() {
@@ -16,8 +11,8 @@ RectangleCollider &Player::getCollider() {
 }
 
 void Player::initVariables() {
-    this->speed_x = 30.f * (1.f / FPS);
-    this->speed_y = 30.f * (1.f / FPS);
+    this->speed_x = 30.f * (1.f / 30.f);
+    this->speed_y = 30.f * (1.f / 30.f);
     this->size = sf::Vector2f(64.f, 32.f);
 }
 

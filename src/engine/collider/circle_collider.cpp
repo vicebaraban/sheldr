@@ -1,5 +1,4 @@
 #include "circle_collider.h"
-#include <iostream>
 
 
 CircleCollider::CircleCollider(): Collider() {};

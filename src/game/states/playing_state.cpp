@@ -1,6 +1,4 @@
 #include "playing_state.h"
-#include <SFML/Window/Keyboard.hpp>
-#include <iostream>
 
 
 PlayingState::PlayingState(StateData* state_data): State(state_data) {

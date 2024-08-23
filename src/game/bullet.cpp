@@ -1,6 +1,4 @@
 #include "bullet.h"
-#include "creature.h"
-#include <SFML/System/Vector2.hpp>
 
 
 Bullet::Bullet(): Creature() {
@@ -16,8 +14,8 @@ void Bullet::initCollider() {
 
 void Bullet::initVariables() {
     this->size = sf::Vector2f(14.f, 14.f);
-    this->speed_x = 100.f * (1.f / FPS);
-    this->speed_y = 100.f * (1.f / FPS);
+    this->speed_x = 100.f * (1.f / 30.f);
+    this->speed_y = 100.f * (1.f / 30.f);
     this->dx = 0.f;
     this->dy = 0.f;
 }

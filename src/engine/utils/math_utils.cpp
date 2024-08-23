@@ -1,7 +1,4 @@
 #include "math_utils.h"
-#include <SFML/System/Vector2.hpp>
-#include <cmath>
-#include <iostream>
 
 
 sf::Vector2f calculateDirection(sf::Vector2f v1, sf::Vector2f v2) {

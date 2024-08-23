@@ -1,6 +1,8 @@
 #ifndef PLAYING_STATE_H_
 #define PLAYING_STATE_H_
 
+
+#include <iostream>
 #include "../../engine/control/state_manager.h"
 #include "../player.h"
 #include "../creature.h"

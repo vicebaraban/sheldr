@@ -10,7 +10,6 @@
 #include "../engine/sprite/sprite_group.h"
 #include "../engine/sprite/sprite.h"
 #include "creature.h"
-#include "../engine/values.h"
 #include "../engine/control/process_events_manager.h"
 #include "../engine/utils/math_utils.h"
 #include "bullet.h"

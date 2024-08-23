@@ -1,21 +1,4 @@
 #include "game.h"
-#include "control/texture_manager.h"
-#include "control/window_manager.h"
-#include "utils/core_statistics_hub.h"
-#include "utils/load.h"
-#include "utils/simple_utils.h"
-#include "values.h"
-#include <SFML/Graphics/Font.hpp>
-#include <SFML/Graphics/Text.hpp>
-#include <SFML/System/Time.hpp>
-#include <SFML/System/Vector2.hpp>
-#include <SFML/Window/Keyboard.hpp>
-#include <SFML/Window/Window.hpp>
-#include <iostream>
-#include <memory>
-#include <string>
-#include <vector>
-#include "utils/math_utils.h"
 
 
 Game::Game() {
@@ -72,7 +55,6 @@ void Game::run() {
 
     }
 }
-
 
 
 void Game::updateSystem() {

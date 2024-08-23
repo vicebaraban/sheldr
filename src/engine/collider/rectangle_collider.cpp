@@ -1,5 +1,4 @@
 #include "rectangle_collider.h"
-#include <iostream>
 
 
 RectangleCollider::RectangleCollider(): Collider() {};

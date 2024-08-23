@@ -1,5 +1,4 @@
 #include "creature.h"
-#include <SFML/System/Vector2.hpp>
 
 
 Creature::Creature() {

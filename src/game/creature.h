@@ -8,8 +8,8 @@
 #include <vector>
 #include "../engine/sprite/sprite_group.h"
 #include "../engine/sprite/sprite.h"
-#include "collider.h"
-#include "rectangle_collider.h"
+#include "../engine/collider/collider.h"
+#include "../engine/collider/rectangle_collider.h"
 
 
 class Creature {

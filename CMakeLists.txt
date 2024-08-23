@@ -12,10 +12,6 @@ set(SOURCES
 
     src/main.cpp 
 
-    src/engine/game.cpp
-    src/engine/game.h 
-    src/engine/values.cpp 
-    src/engine/values.h 
 
     src/engine/control/process_events_manager.cpp 
     src/engine/control/process_events_manager.h 
@@ -27,6 +23,13 @@ set(SOURCES
     src/engine/control/audio_manager.h
     src/engine/control/state_manager.cpp 
     src/engine/control/state_manager.h 
+
+    src/engine/collider/collider.cpp 
+    src/engine/collider/collider.h 
+    src/engine/collider/rectangle_collider.cpp 
+    src/engine/collider/rectangle_collider.h 
+    src/engine/collider/circle_collider.cpp 
+    src/engine/collider/circle_collider.h 
 
     src/engine/sprite/sprite.cpp 
     src/engine/sprite/sprite.h 
@@ -43,22 +46,16 @@ set(SOURCES
     src/engine/utils/math_utils.h 
     
     
+    src/game/game.cpp 
+    src/game/game.h 
     src/game/creature.cpp 
     src/game/creature.h 
     src/game/player.cpp 
     src/game/player.h 
     src/game/bullet.cpp 
     src/game/bullet.h 
-    src/game/wall.cpp 
-    src/game/wall.h 
     src/game/building.cpp 
     src/game/building.h 
-    src/game/collider.cpp 
-    src/game/collider.h 
-    src/game/rectangle_collider.cpp 
-    src/game/rectangle_collider.h 
-    src/game/circle_collider.cpp 
-    src/game/circle_collider.h 
 
     src/game/states/playing_state.cpp 
     src/game/states/playing_state.h 

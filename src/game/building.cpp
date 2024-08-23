@@ -1,5 +1,4 @@
 #include "building.h"
-#include <iostream>
 
 
 Building::Building(): Creature() {

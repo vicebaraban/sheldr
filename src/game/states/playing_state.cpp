@@ -62,9 +62,9 @@ void PlayingState::update(const float &dt) {
     this->house->update();
 
 
-    // if (this->player->getSprite().getGlobalBounds().intersects(this->house->getSprite().getGlobalBounds())) {
-    //     std::cout << "1\n";
-    // }
+    if (this->player->getSprite().getGlobalBounds().intersects(this->house->getSprite().getGlobalBounds())) {
+        std::cout << "1\n";
+    }
 
     // std::cout << player->getCollider().getRectCoords().first.x << " "
     //           << player->getCollider().getRectCoords().first.y << " "
